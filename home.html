@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Consumo de Energia</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
+</head>
+<body>
+  <section id="section_calc">
+    <h1>Calculadora de Consumo de Energia</h1>
+    <div class="divs">
+      <label for="nome">Nome do Aparelho:</label>
+      <input id="nome" type="text">
+    </div>
+
+    <div class="divs">
+      <label for="watts">Potência (Watts):</label>
+      <input id="watts" type="number">
+    </div>
+
+    <div class="divs">
+      <label for="horas">Tempo de uso (horas):</label>
+      <input id="horas" type="number">
+    </div>
+
+    <button class="butoes" id="btnConsumo">Calcular Consumo Diário</button>
+    <button class="butoes" id="botaomes">Calcular Consumo Mensal</button>
+
+    <div class="divs">
+      <p id="resultado">Consumo (Wh): </p>
+      <p id="resultadoKWH">Consumo (kWh): </p>
+    </div>
+
+    <div id="div_botoes">
+      <button class="buttonsoflist" id="btnlista">Adicionar à lista</button>
+      <button onclick="visualizarLista()" class="buttonsoflist" id="bntmostrarlista">Visualizar lista de aparelhos</button>
+    </div>
+  </section>
+
+  <section id="sectionlista">
+    <h2>Lista de Aparelhos</h2>
+    <ul id="listaAparelhos"></ul>
+  </section>
+
+  <script src="script1.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+  max-width: 400px;
+  margin: 40px auto;
+  height: auto;
+  max-height: 400px;
+  padding: 20px;
+  background: #f3f4f6;
+}
+
+#section_calc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+
+#sectionlista {
+  display: none;
+}
+
+.divs {
+  width: 400px;
+}
+
+h1 {
+  color: #b91c1c;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.butoes {
+  width: 100%;
+  margin-top: 16px;
+  padding: 10px;
+  background: #b91c1c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#div_botoes {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  padding-top: 10px;
+}
+
+.buttonsoflist {
+  background: #b91c1c;
+  width: 40%;
+  height: 40px;
+  font-family: 'Times New Roman', Times, serif;
+  border-radius: 4px;
+  border: #b91c1c;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #7f1d1d;
+}
+
+#resultado, #resultadoKWH {
+  margin-top: 20px;
+  padding-top: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  color: #b91c1c;
+}

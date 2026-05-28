@@ -42,7 +42,7 @@ function listaraparelhos() {
   const mensalWh = wh * 30;
   const mensalKWH = mensalWh / 1000;
 
-  if (nome === '' || watts === "" || horas === "") {
+  if (nome === '' || watts === 0 || horas === 0) {
     return
   }
 

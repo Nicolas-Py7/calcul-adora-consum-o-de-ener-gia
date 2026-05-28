@@ -15,6 +15,8 @@ function consumodiario() {
   const watts = Number(inputwatts.value);
   const horas = Number(inputhoras.value);
 
+  if (watts <= 0 || horas <= 0) return;
+
   const wh = watts * horas;
   const kwh = wh / 1000;
 
@@ -26,6 +28,8 @@ function consumomensal() {
   const watts = Number(inputwatts.value);
   const horas = Number(inputhoras.value);
 
+  if (watts <= 0 || horas <= 0) return;
+
   const mensalWh = watts * horas * 30;
   const mensalKWH = mensalWh / 1000;
 
@@ -33,10 +37,41 @@ function consumomensal() {
   resultadoKWH.textContent = "Consumo mensal: " + mensalKWH + " kWh";
 }
 
+function renderizarLista() {
+
+    listaAparelhos.innerHTML = "";
+
+    aparelhos.forEach((aparelho, index) => {
+
+        const li = document.createElement("li");
+
+        li.innerHTML = `
+            ${aparelho.nome} |
+            ${aparelho.consumodiario} kWh/dia |
+            ${aparelho.consumomensal} kWh/mês
+        `;
+        
+        const btnExcluir = document.createElement("button");
+        btnExcluir.textContent = "X";
+        btnExcluir.className = "bntexcluir";
+        btnExcluir.onclick = function() {
+          aparelhos.splice(index, 1);
+          renderizarLista();
+        };
+
+        li.appendChild(btnExcluir);
+
+        listaAparelhos.appendChild(li);
+
+    });
+}
+
 function salvaraparelho() {
-  const nome = nomeAparelho.value;
+  const nome = nomeAparelho.value.trim();
   const watts = Number(inputwatts.value);
   const horas = Number(inputhoras.value);
+
+  if (!nome || watts <= 0 || horas <= 0) return;
   
   const wh = watts * horas;
   const kwh = wh / 1000;
@@ -53,26 +88,12 @@ function salvaraparelho() {
   }
 
   aparelhos.push(aparelho);
-}
-
-function renderizarLista() {
-
-    listaAparelhos.innerHTML = "";
-
-    aparelhos.forEach((aparelho, index) => {
-
-        const li = document.createElement("li");
-
-        li.innerHTML = `
-            ${aparelho.nome} -
-            ${aparelho.consumodiario} kWh/dia -
-            ${aparelho.consumomensal} kWh/mês
-        `;
-
-        listaAparelhos.appendChild(li);
-
-    });
-
+  
+  renderizarLista();
+  
+  nomeAparelho.value = '';
+  inputwatts.value = '';
+  inputhoras.value = '';
 }
 
 function visualizarLista() {
@@ -86,8 +107,6 @@ function visualizarLista() {
 }
 
 botao.addEventListener("click", consumodiario);
-
 botaomes.addEventListener("click", consumomensal);
-
 botaoAdicionar.addEventListener("click", salvaraparelho);
-
+botaoVisualizar.addEventListener("click", visualizarLista);

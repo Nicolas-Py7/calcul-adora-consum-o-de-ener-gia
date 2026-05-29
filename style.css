@@ -3,7 +3,7 @@ body {
   background-color: #7f1d1d;
   background-image: radial-gradient(#ffffff30 1px, transparent 1px);
   background-size: 24px 24px;
-  min-height: 100vh;
+  min-height: 80vh;
   margin: 0;
   padding: 20px;
 }
